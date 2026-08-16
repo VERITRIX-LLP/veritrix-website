@@ -1,0 +1,1 @@
+import{t as e}from"./framework~index~page~page~layout~page~page~page~app-page-cache-render~app-page-cache~app-ro~fi3ky6r1-C-4lHSX7.js";var t=e(),n={title:`About`};function r(){return(0,t.jsx)(`section`,{className:`about-page-placeholder`,"aria-label":`About VERITRIX`})}export{r as default,n as metadata};
