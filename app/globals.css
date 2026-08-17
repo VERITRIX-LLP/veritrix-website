@@ -256,10 +256,15 @@ html{scroll-snap-type:none}
 
 /* Keep the landing header elegant without consuming too much of the first view. */
 @media(min-width:901px){
-  html{scroll-padding-top:6.5rem}
-  .site-header{height:104px}
-  .hero{min-height:calc(100svh - 104px)}
+  html{scroll-padding-top:5.25rem}
+  .site-header{height:84px;padding-right:1.25rem}
+  .site-header .brand-symbol{width:54px;height:54px;flex-basis:54px}
+  .site-header .brand-name{font-size:1.7rem}
+  .site-header .nav{gap:clamp(1.4rem,2vw,2.25rem)}
+  .site-header .nav a{font-size:.98rem}
+  .site-header .icon-button{width:42px;height:42px}
+  .hero{min-height:calc(100svh - 84px)}
 }
 
 /* Separate the invitation from its action so neither reads as an afterthought. */
-.hero-invitation{gap:1.65rem}
+.hero-invitation{gap:2.5rem}
