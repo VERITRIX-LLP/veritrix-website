@@ -266,5 +266,5 @@ html{scroll-snap-type:none}
   .hero{min-height:calc(100svh - 84px)}
 }
 
-/* Separate the invitation from its action so neither reads as an afterthought. */
-.hero-invitation{gap:2.5rem}
+/* Keep the invitation and its action together, with breathing room above the group. */
+@media(min-width:901px){.hero-invitation{bottom:2.5rem;gap:1rem}}
