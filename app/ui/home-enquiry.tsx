@@ -1,20 +1,29 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import Link from "next/link";
 import { Arrow } from "./icons";
 
 export function HomeEnquiry() {
-  const [submitted, setSubmitted] = useState(false);
-
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
-    event.currentTarget.reset();
+    const data = new FormData(event.currentTarget);
+    const subject = `Project enquiry from ${String(data.get("name") ?? "Website visitor")}`;
+    const body = [
+      `Name: ${String(data.get("name") ?? "")}`,
+      `Email: ${String(data.get("email") ?? "")}`,
+      `Phone: ${String(data.get("phone") ?? "")}`,
+      `Service: ${String(data.get("service") ?? "")}`,
+      "",
+      "Enquiry:",
+      String(data.get("message") ?? ""),
+    ].join("\n");
+
+    window.location.href = `mailto:veritrixtekstudiollp@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
-    <section className="cta-band home-enquiry">
+    <section className="cta-band home-enquiry" id="contact">
       <div className="home-enquiry-copy">
         <p className="eyebrow">Start a conversation</p>
         <h2>Have something in mind? Let’s talk about what you’re building.</h2>
@@ -23,11 +32,15 @@ export function HomeEnquiry() {
           you need support. It does not need to be perfectly planned—we can begin
           with a conversation.
         </p>
+        <div className="home-enquiry-details" aria-label="VERITRIX contact details">
+          <p><span>Email</span><a href="mailto:veritrixtekstudiollp@gmail.com">veritrixtekstudiollp@gmail.com</a></p>
+          <p><span>Phone</span><a href="tel:+919421975439">+91 94219 75439</a></p>
+          <p><span>Office</span>401, Krystal Square, E Ward, Nagala Park, Kolhapur 416002, Maharashtra, India</p>
+          <p><span>Business hours</span>10:00 AM–5:00 PM IST</p>
+        </div>
       </div>
 
       <form className="home-enquiry-form" onSubmit={submit}>
-        <p className="home-enquiry-note">Preview only — enquiries are not sent or stored yet.</p>
-
         <label>
           Name
           <input name="name" autoComplete="name" required />
@@ -36,6 +49,11 @@ export function HomeEnquiry() {
         <label>
           Work email
           <input name="email" type="email" autoComplete="email" required />
+        </label>
+
+        <label className="home-enquiry-wide">
+          Phone
+          <input name="phone" type="tel" autoComplete="tel" required />
         </label>
 
         <label className="home-enquiry-wide">
@@ -70,13 +88,8 @@ export function HomeEnquiry() {
           Send your enquiry <Arrow />
         </button>
 
-        <p
-          className={`home-enquiry-status ${submitted ? "home-enquiry-status-success" : ""}`}
-          aria-live="polite"
-        >
-          {submitted
-            ? "Form preview complete. Nothing was sent or stored yet."
-            : "Complete the form to preview the confirmation."}
+        <p className="home-enquiry-status">
+          This opens a prepared message in your email app for you to review and send.
         </p>
       </form>
     </section>

@@ -39,7 +39,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const anchors = ["home", "about", "services"]
+    const anchors = ["home", "about", "services", "contact"]
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
     let frame = 0;
@@ -100,6 +100,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     if (section === "home") {
       document.getElementById("about")?.classList.remove("is-visible");
       document.getElementById("services")?.classList.remove("is-visible");
+      document.getElementById("contact")?.classList.remove("is-visible");
     }
     if (section !== "home" && target?.classList.contains("is-visible")) {
       target.classList.remove("is-visible");
@@ -131,7 +132,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       </footer>
       {/* Foundation milestone only: interactive explanation; no chatbot service is connected. */}
       <div className={`chat-placeholder ${chatOpen ? "chat-placeholder-open" : ""}`} id="chat-placeholder" role="status">
-        <button onClick={() => setChatOpen(false)} aria-label="Close chat notice">×</button><p className="eyebrow">Chat assistant</p><h3>Coming in a future milestone.</h3><p>No chat service is connected yet. For now, please use the project enquiry form.</p><Link href="/contact" onClick={() => setChatOpen(false)}>Go to contact →</Link>
+        <button onClick={() => setChatOpen(false)} aria-label="Close chat notice">×</button><p className="eyebrow">Chat assistant</p><h3>Coming in a future milestone.</h3><p>No chat service is connected yet. For now, please use the project enquiry form.</p><Link href="/#contact" onClick={() => setChatOpen(false)}>Go to contact →</Link>
       </div>
       <button className="chat-button" onClick={() => setChatOpen(!chatOpen)} aria-expanded={chatOpen} aria-controls="chat-placeholder" aria-label="Open chat assistant information"><Chat /></button>
     </>
