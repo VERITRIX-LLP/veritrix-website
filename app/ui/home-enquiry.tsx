@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { Arrow } from "./icons";
 
 export function HomeEnquiry() {
@@ -59,8 +60,9 @@ export function HomeEnquiry() {
         <label className="home-enquiry-consent home-enquiry-wide">
           <input type="checkbox" required />
           <span>
-            I agree that VERITRIX may use these details to respond to my enquiry.
-            <small> Privacy policy content is pending legal approval.</small>
+            I confirm that I am at least 18 years old and agree that VERITRIX may
+            use these details to respond to my enquiry. Read our{" "}
+            <Link href="/legal/privacy">Privacy Policy</Link>.
           </span>
         </label>
 

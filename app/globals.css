@@ -241,3 +241,15 @@ html{scroll-snap-type:none}
 @media(prefers-reduced-motion:reduce){.why-visual{animation:none}.why-heading,.why-principles article{opacity:1!important;transform:none!important;transition:none}}
 
 /* The supplied light symbol is an opaque PNG; multiply removes its ivory tile. */
+
+/* Long-form legal pages retain the editorial system while prioritising readability. */
+.legal-updated{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+.legal-policy{width:min(980px,calc(100% - 2.5rem));margin:0 auto;padding:clamp(4rem,8vw,8rem) 0}
+.legal-policy section{padding:clamp(2rem,4vw,3.5rem) 0;border-top:1px solid var(--line)}
+.legal-policy section:first-child{padding-top:0;border-top:0}
+.legal-policy h2{margin:0 0 1.25rem;font-size:clamp(1.75rem,3vw,2.8rem);line-height:1.12}
+.legal-policy p,.legal-policy li,.legal-policy address{color:var(--muted);font-size:clamp(1rem,1.2vw,1.12rem)}
+.legal-policy p{margin:0 0 1rem}.legal-policy p:last-child{margin-bottom:0}
+.legal-policy ul{margin:1rem 0 1.5rem;padding-left:1.4rem}.legal-policy li+li{margin-top:.55rem}
+.legal-policy address{font-style:normal;line-height:1.85}.legal-policy address strong{color:var(--ink)}
+.legal-policy a,.home-enquiry-consent a,.consent a{text-decoration:underline;text-underline-offset:.2em}
