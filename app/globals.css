@@ -253,3 +253,13 @@ html{scroll-snap-type:none}
 .legal-policy ul{margin:1rem 0 1.5rem;padding-left:1.4rem}.legal-policy li+li{margin-top:.55rem}
 .legal-policy address{font-style:normal;line-height:1.85}.legal-policy address strong{color:var(--ink)}
 .legal-policy a,.home-enquiry-consent a,.consent a{text-decoration:underline;text-underline-offset:.2em}
+
+/* Keep the landing header elegant without consuming too much of the first view. */
+@media(min-width:901px){
+  html{scroll-padding-top:6.5rem}
+  .site-header{height:104px}
+  .hero{min-height:calc(100svh - 104px)}
+}
+
+/* Separate the invitation from its action so neither reads as an afterthought. */
+.hero-invitation{gap:1.65rem}
