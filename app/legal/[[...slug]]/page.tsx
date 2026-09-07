@@ -5,6 +5,17 @@ type LegalPageProps = {
   params: Promise<{ slug?: string[] }>;
 };
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [
+    { slug: undefined },
+    { slug: ["privacy"] },
+    { slug: ["cookies"] },
+    { slug: ["terms"] },
+  ];
+}
+
 export async function generateMetadata({ params }: LegalPageProps): Promise<Metadata> {
   const { slug } = await params;
   return slug?.[0] === "privacy"
