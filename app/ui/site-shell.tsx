@@ -7,12 +7,14 @@ import { useEffect, useState } from "react";
 import { nav } from "../data";
 import { Chat, Moon, Sun } from "./icons";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 function BrandLogo({ footer = false }: { footer?: boolean }) {
   return (
     <span className={`brand-logo ${footer ? "brand-logo-footer" : ""}`}>
       <span className="brand-symbol">
-        <Image className="logo-light" src="/veritrix-symbol-light.svg" alt="" width={1040} height={697} priority={!footer} />
-        <Image className="logo-dark" src="/veritrix-symbol-dark.svg" alt="" width={1040} height={697} priority={!footer} />
+        <Image className="logo-light" src={`${basePath}/veritrix-symbol-light.svg`} alt="" width={1040} height={697} priority={!footer} />
+        <Image className="logo-dark" src={`${basePath}/veritrix-symbol-dark.svg`} alt="" width={1040} height={697} priority={!footer} />
       </span>
       <span className="brand-name">VERITRIX</span>
     </span>
